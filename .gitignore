@@ -1,0 +1,9 @@
+release.properties
+scalastyle-output.xml
+target/
+
+*.iml
+
+.idea
+io
+spark-warehouse
