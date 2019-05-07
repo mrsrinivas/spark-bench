@@ -32,13 +32,14 @@ object DataGen {
       println("spark-submit " +
         "--class com.mrsrinivas.app.DataGen " +
         "spark-bench-1.0-fat.jar " +
-        "[total-output-size] [number-of-files] [output-directory]")
+        "[total-output-size M|G|T|P] [number-of-files] [output-directory]")
       println(" ")
       println("Example:")
-      println("DRIVER_MEMORY=50g spark-submit " +
-        "--class com.mrsrinivas.app.DataGen  " +
-        "spark-bench-1.0-fat.jar  " +
+      println("spark-submit " +
+        "--class com.mrsrinivas.app.DataGen " +
+        "spark-bench-1.0-fat.jar " +
         "100G 200 file:///scratch/username/datagen_in")
+      println(" ")
 
       System.exit(0)
     }
@@ -51,7 +52,7 @@ object DataGen {
     val size = sizeToSizeStr(outputSizeInBytes)
 
     val conf = new SparkConf()
-      .setAppName(s"DataGen ($size)")
+      .setAppName(s"DataGen ($size) in $parts")
       .set("spark.default.parallelism", s"$parts")
 
     val spark = SparkSession.builder
@@ -73,11 +74,12 @@ object DataGen {
 
     println("===========================================================================")
     println("===========================================================================")
-    println(s"Input size: $size")
+    println(s"Input size(total): $size")
     println(s"Total number of records: $numRecords")
     println(s"Number of output partitions: $parts")
     println("Number of records/output partition: " + (numRecords / parts))
     println("Record size in bytes: ~ " + approxRecordSizeInBytes)
+    println("Output path: " + outputPath)
     println("===========================================================================")
     println("===========================================================================")
 

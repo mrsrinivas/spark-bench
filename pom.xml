@@ -135,6 +135,7 @@
           <descriptorRefs>
             <descriptorRef>jar-with-dependencies</descriptorRef>
           </descriptorRefs>
+
         </configuration>
         <executions>
           <execution>
@@ -204,7 +205,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <scala.version>2.11.8</scala.version>
+    <scala.version>2.11.12</scala.version>
     <scala.binary.version>2.11</scala.binary.version>
     <spark.version>2.3.0</spark.version>
     <java.version>1.8</java.version>
@@ -221,13 +222,13 @@
       <groupId>org.apache.spark</groupId>
       <artifactId>spark-core_${scala.binary.version}</artifactId>
       <version>${spark.version}</version>
-      <!--<scope>provided</scope>-->
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.spark</groupId>
       <artifactId>spark-sql_${scala.binary.version}</artifactId>
       <version>${spark.version}</version>
-      <!--<scope>provided</scope>-->
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.google.guava</groupId>
@@ -238,14 +239,15 @@
       <groupId>org.alluxio</groupId>
       <artifactId>alluxio-core-client-fs</artifactId>
       <version>${alluxio.version}</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.alluxio</groupId>
       <artifactId>alluxio-core-common</artifactId>
       <version>${alluxio.version}</version>
+      <scope>provided</scope>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/ch.cern.sparkmeasure/spark-measure -->
     <dependency>
       <groupId>ch.cern.sparkmeasure</groupId>
       <artifactId>spark-measure_2.11</artifactId>
