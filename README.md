@@ -19,8 +19,8 @@ Run DataGen Spark application on YARN cluster
         --num-executors 30 \
         --driver-memory 2g \
         --executor-memory 4g \
-        --class --class com.mrsrinivas.app.DataGen \
-        spark-bench-1.0-fat.jar  \ 
+        --class com.mrsrinivas.app.DataGen \
+        ./target/spark-bench-1.0-fat.jar  \ 
         100G \
         30 \
         file:///scratch/username/datagen_in > spark-submit.log &
@@ -32,7 +32,7 @@ Run DataGen Spark application on YARN cluster
         
 ```
 
-Once the job is successful
+Once the job is successful, the output directory should have following sub directories
 ```bash
     $ cd /scratch/username/datagen_in
     $ ls
